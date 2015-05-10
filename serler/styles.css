@@ -1,0 +1,75 @@
+html {
+   background: -webkit-linear-gradient(orange, red); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(orange, red); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(orange, red); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(orange, red); /* Standard syntax */
+  
+background-attachment: fixed
+
+}
+
+h1 {
+    color: black;
+    text-align: center;
+	padding-bottom: 20px;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+background: black;
+
+}
+
+.menu li {
+    	display: inline;
+
+}
+.menu a{
+	text-decoration: none;
+	padding: 5px;
+	color: white;
+}
+.menu a:hover{
+	text-decoration: underline;
+	padding: 5px;
+	color: black;
+	background: white;
+}
+
+body	{
+ width:90%;
+padding-top: 5px;
+    
+    padding-bottom: 100px;
+    
+ margin:0 auto; 
+font-family:Calibri,
+ sans-serif; 
+background: white;
+
+}
+
+#text {
+padding-right: 50px;
+padding-left: 50px;
+overflow-x: auto;
+
+}
+
+#quicksearch {
+  text-align: right;
+  padding-right: 1%;
+  float: right;
+}
+
+#login{
+  text-align: left;
+  padding-left: 1%;
+  float: left;
+}
