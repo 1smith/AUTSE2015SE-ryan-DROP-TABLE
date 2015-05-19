@@ -24,6 +24,7 @@
 		<li><a href="index.php">Home</a></li>
 		<li><a href="poststatusform.php">Add a Paper</a></li>
 		<li><a href="searchstatusform.php">Advanced Search</a></li>
+        <li><a href="contact.php">Contact Us</a></li>
 		<li><a href="about.php">About SERL</a></li>
 	</ul>
 
