@@ -74,7 +74,7 @@ $userlogin = $_SESSION["login"]; // copy the value to a variable
 
         require_once('settings.php');
         $conn = @mysqli_connect($host, $user, $pswd)
-        or die('Failed to connect to server');
+        or die('Failed to connect to server'.mysql_error());
 
         @mysqli_select_db($conn, $dbnm)
         or die('Database not available');
@@ -87,13 +87,15 @@ $userlogin = $_SESSION["login"]; // copy the value to a variable
         } else {
             echo "<p>Table Doesn't Exist</p>";
             $table = "CREATE TABLE IF NOT EXISTS contact (
+                          id int(2) NOT NULL AUTO_INCREMENT,
 						  fullname VARCHAR (50) NOT NULL,
 						  email VARCHAR (50) NOT NULL,
 						  topic varchar (20) NOT NULL,
 						  message varchar(1000) NOT NULL,
+						  PRIMARY KEY (id)
 						)";
             @mysqli_query($conn, $table)
-            or die('Failed to connect to server');
+            or die('Failed to connect to server'. mysql_error());
         }
 
         $query = "INSERT INTO contact(fullname, email, topic, message)
