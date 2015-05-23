@@ -74,7 +74,7 @@
 	
 			if (mysqli_query($conn, $query)) {
 				echo "<p>New record created successfully</p>";
-				header("location:login.php");
+				header("location:index.php");
 
 			}
 			else {
@@ -92,7 +92,14 @@
 		mysqli_close($conn);
 	}
 	?>
-
+<script>
+	function goBack() {
+		window.history.back();
+	}
+	</script>
+	
 	</div>
+
+	
 </body>
 </html> 

@@ -3,7 +3,9 @@
 <html>
 <body>
 <div id=login>
-	<?php if($userlogin != ""){ echo "{$userlogin} <a href=\"logout.php\">Log Out</a>";} else echo "<a href=\"login.php\">Login to SERLER</a>"; ?>
+	<?php if($userlogin != ""){ 
+	echo "<a href=\"account.php\">{$userlogin}<a> <a href=\"logout.php\">Log Out</a>";
+} else echo "<a href=\"login.php\">Login to SERLER</a>"; ?>
 </div>
 
 <div id=quicksearch>

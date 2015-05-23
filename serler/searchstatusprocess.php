@@ -45,7 +45,6 @@
 	$row = mysqli_fetch_assoc($result);
 	
 	if(isset($row)){
-		echo "<p>Table Exists</p>";
 	}
 	else {
 		echo "<p>Table Doesn't Exist</p>";
@@ -55,8 +54,7 @@
 		@mysqli_query($conn, $table)
 		or die('Failed to connect to server');
 		$query = "ALTER TABLE query ADD CONSTRAINT query_ibfk_1 FOREIGN KEY (user_name) REFERENCES users (user_name);";
-		mysqli_query($conn, $query);
-		or die('Failed to connect to server');
+		@mysqli_query($conn, $query);
 	}
 	mysqli_free_result($result);
 	mysqli_close($conn);
@@ -121,6 +119,21 @@
 	?>
 	<br></br>
 	<br><a href="searchstatusform.php">Search for another status</a></br>
+
+	<form action = "saveQuery.php" method = "post">
+		<input type="hidden" value=<?php 
+		if (isset ($_GET["input"])){
+			echo "input=" . $_GET["input"];
+		}
+		if (isset ($_GET["orderby"])){
+			echo "&orderby=" . $_GET["orderby"];
+		}
+		if (isset ($_GET["order"])){
+			echo "&order=" . $_GET["order"];
+		}
+		?> name="query">
+		<input type="submit" value="Save This Query">
+	</form>	
 	</div>
 </body>
 </html> 
