@@ -73,3 +73,32 @@ overflow-x: auto;
   padding-left: 1%;
   float: left;
 }
+
+
+.ckb{
+  cursor:pointer;
+}
+.ckb > input{ /* HIDE ORG RADIO & CHECKBOX */
+  visibility: hidden;
+  position: absolute;
+}
+
+/* CHECKBOX */
+.ckb > i{     /* DEFAULT <i> STYLE */
+  display:inline-block;
+  vertical-align:middle;
+  width:22px;
+  height:22px;
+  background-image: url(unchecked.png);
+}
+.ckb > input + i:after{
+  content:"";
+  display:inline-block;
+  vertical-align:top;
+  width:22px;
+  height:22px;
+  background-image: url(unchecked.png);
+}
+.ckb > input:checked + i:after{ /* (RADIO CHECKED) <i> STYLE */
+  background-image: url(check.png);
+}

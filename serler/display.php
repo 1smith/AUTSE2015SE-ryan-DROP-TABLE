@@ -26,10 +26,31 @@
 			$date = $row['date_added'];
 			$year = $row['year'];
 			$authors = $row['authors'];
-			$venue = $row['venue'];
-			$quality = $row['quality'];
-			$tags = $row['tags'];
-			$abstract = $row['abstract'];
+			$title = $row["title"];
+			$authors = $row["authors"];
+			$journal = $row["journal"];
+			$level = $row["level"];
+			$rater = $row["rater"];
+			$rate = $row["rate"];
+			$reason = $row["reason"];
+			$outcome = $row["outcome"];
+			$when = $row["when"];
+			$where = $row["where"];
+			$why = $row["why"];
+			$who = $row["who"];
+			$what = $row["what"];
+			$how = $row["how"];
+			$result = $row["result"];
+			$integrity = $row["integrirty"];
+			$question = $row["question"];
+			$metrics = $row["metrics"];
+			$contributor = $row["contributor"];
+			$year = $row["year"];
+			$methodology = $row["methodology"];
+			$pratice = $row["practice"];
+			$contributor = $row["contributor"];
+			$method = $row["method"];
+			$participants = $row["participants"];
 		}
 
 		mysqli_free_result($results);
@@ -55,29 +76,46 @@
 	echo "<h2>{$title}</h2>";
 	echo $date;
 	echo "- {$contributor}";
-	echo "<p>
-		<br><strong>Author(s): </strong>{$authors}</br>
-		<br><strong>Venue: </strong>{$venue}</br>
-		<br><strong>Year: </strong>{$year}</br>
-	</p>";
+	echo "<br><strong>Author(s): </strong>{$authors}
+		<br><strong>Journal: </strong>{$journal}
+		<br><strong>Year: </strong>{$year}
+		<br><strong>Research Level: </strong>{$level}";
 
-	echo "Quality <br>";
+	echo "<br>";
+	echo "<h3>Credibility </h3>";
 
-	for($i = $quality;  $i > 0; $i--){
+	for($i = $rate;  $i > 0; $i--){
 		echo "<img src=\"star.png\" height=\"15\"  width=\"15\" >";
 	}
-	for($j = 5 - $quality; $j > 0; $j--){
+	for($j = 5 - $rate; $j > 0; $j--){
 		echo "<img src=\"unstar.png\"  height=\"15\"  width=\"15\" >";
 	}
+	echo "  -  By: {$rater} <br> <strong>Reason: </strong>{$reason}";
 
+	echo "<br><strong>Methodology: </strong>{$methodology}
+		<br><strong>Practice Investigated: </strong>{$pratice}
+	";
 
-	echo "<p>";
-	echo $abstract;
-	echo "</p>";
+	echo "<br>";
+	echo "<h3>Evidence Item </h3>";
+	echo "<strong>Benefit/Outcome tested: </strong>{$outcome}
+		<br><br><strong>Context of the Study</strong>
+		<br><strong>When: </strong>{$when}   <strong>Where: </strong>{$where} 		<strong>Why: </strong>{$why}   
+		<strong>Who: </strong>{$who}    <strong>What: </strong>{$what}    <strong>How: </strong>{$how}
+		<br><br><strong>Study Result: </strong><br>{$result}
+		<br><br><strong>Method/Practice implementation integrity: </strong><br>{$integrity}
+	";
 
-	echo $tags;
+	echo "<br>";
+	echo "<h3>Research Design </h3>";
+	echo "<strong>Question: </strong><br>{$question}
+			<br><strong>Nature of Participants: </strong> {$participants}
+		<br><br><strong>Metrics used: </strong><br>{$metrics}
+				<br><strong>Method: </strong> {$method}
 
-	echo "<br></br>";
+	";
+
+	echo "<br>";
 	echo '<p><button onclick="goBack()">
 					Go Back to search results
 					</button></p>';

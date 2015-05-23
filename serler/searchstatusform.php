@@ -22,8 +22,7 @@
 
 <body>
 	<?php require_once('header.php'); ?>
-	
-	<div id=text>
+		<div id=text>
 	<p>
 
 	<form id="search" action = "searchstatusprocess.php" method = "get">
