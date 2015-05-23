@@ -51,7 +51,7 @@
 		if($row['password'] == $pword){
 			echo "<p>correct password {$row['password']}, {$pword}</p>";
 			$_SESSION["login"] = $login;
-			header("Refresh:0");
+			header("location:index.php");
 		}
 		else{
 			echo "<p>incorrect password {$row['password']}, {$pword}</p>";			
