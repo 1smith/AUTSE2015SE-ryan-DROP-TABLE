@@ -6,7 +6,7 @@
  }
  $userlogin = $_SESSION["login"]; // copy the value to a variable
 ?>
-
+<!-- REFACTORED 'pratice' into 'practice' -->
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css">
@@ -53,14 +53,14 @@
 
 		header("location:poststatusform.php");
 	}
-	$result = mysqli_query($conn, 'show tables like "pratice"');
+	$result = mysqli_query($conn, 'show tables like "practice"');
 	$row = mysqli_fetch_assoc($result);
 	
 	if(isset($row)){
 	}
 	else {
 		echo "<p>Table Doesn't Exist</p>";
-		$table = "CREATE TABLE IF NOT EXISTS pratice (
+		$table = "CREATE TABLE IF NOT EXISTS practice (
 				  id int(2) NOT NULL AUTO_INCREMENT,
 				  method varchar(100) NOT NULL,
 				  description varchar(1000) NOT NULL,
@@ -170,7 +170,7 @@
 	?>
 
 	<br>Pratice Investigated:
-	<select name="pratice">
+	<select name="practice">
 	<?php 
 		$conn = @mysqli_connect($host, $user, $pswd)
 		or die('Failed to connect to server');
@@ -178,7 +178,7 @@
 		@mysqli_select_db($conn, $dbnm)
 		or die('Database not available');
 		
-		$query = "SELECT * FROM pratice";
+		$query = "SELECT * FROM practice";
 		$results = mysqli_query($conn, $query);
 
 		while ($item = mysqli_fetch_assoc($results)) {

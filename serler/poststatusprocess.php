@@ -6,7 +6,12 @@
  }
  $userlogin = $_SESSION["login"]; // copy the value to a variable
 ?>
-
+<!-- REFACTORED 'pratice' into 'practice', 'integrirty' to 'integrity' -->
+<!-- Made a new query to insert into the table, added "`" around "where" and "when", 
+	also made "id" a key so auto increment works -->
+<!-- "Notice: Undefined index: practice in 
+C:\xampp\htdocs\AUTSE2015SE-ryan-DROP-TABLE\serler\poststatusprocess.php on line 249" 
+THIS SETS THE "PRACTICE" FIELD AS NULL IN THE TABLE -->
 <html>
 
 <head>
@@ -29,7 +34,7 @@
 		$levelErr = false;
 		$rateErr = false;
 		$methodologyErr = false;
-		$praticeErr = false;
+		$practiceErr = false;
 		$methodErr = false;
 		$participantsErr = false;
 		$raterErr = false;
@@ -227,7 +232,7 @@
 			if (!isset($_POST["rate"]) && !empty($_POST["rate"])) {
 				$rateErr = true;
 			}else {
-				//Converting the permision type in booleans
+				//Converting the permission type in booleans
 				foreach($_POST['rate'] as $rate){
 					echo "<br>", $rate, "</br>";
 				}
@@ -238,11 +243,12 @@
 				$methodology = $_POST["methodology"];
 				echo "<br> {$methodology} </br>";
 			}
-			if (!isset($_POST["pratice"]) && !empty($_POST["pratice"])) {
-				$praticeErr = true;
+			//Undefined index:practice after line with else?
+			if (!isset($_POST["practice"]) && !empty($_POST["practice"])) {
+				$practiceErr = true;
 			}else {
-				$pratice = $_POST["pratice"];
-				echo "<br> {$pratice} </br>";
+				$practice = $_POST["practice"];
+				echo "<br> {$practice} </br>";
 			}
 			if (!isset($_POST["contributor"]) && !empty($_POST["contributor"])) {
 				$contributorErr = true;
@@ -267,7 +273,7 @@
 		echo "</p>";
 		
 		if($titleErr == false && $authorsErr == false && $journalErr == false && $yearErr == false && $levelErr == false && $raterErr == false && $rateErr == false && $reasonErr == false && $methodologyErr == false && 
-		$praticeErr == false && $outcomeErr == false && $whenErr == false && $whereErr == false && $whyErr == false && $whoErr == false && $whatErr == false && $howErr == false && $resultErr == false && $integrityErr == false && 
+		$practiceErr == false && $outcomeErr == false && $whenErr == false && $whereErr == false && $whyErr == false && $whoErr == false && $whatErr == false && $howErr == false && $resultErr == false && $integrityErr == false && 
 		$questionErr == false && $participantsErr == false && $metricsErr == false && $methodErr == false && $contributorErr == false){
 			echo "<p> <b>You have entered correctly! </b>";
 					
@@ -286,6 +292,7 @@
 			}
 			else {
 				echo "<p>Table Doesn't Exist</p>";
+				/* ORIGINAL QUERY
 				$table = "CREATE TABLE IF NOT EXISTS serler (
 						  id int(2) NOT NULL AUTO_INCREMENT,
 						  title varchar(100) NOT NULL,
@@ -301,8 +308,8 @@
 						  methodology varchar(1000) NOT NULL,
 						  practice varchar(1000) NOT NULL,
 						  outcome varchar(1000) NOT NULL,
-						  when varchar(1000) NOT NULL,
-						  where varchar(1000) NOT NULL,
+						  'when' varchar(1000) NOT NULL,
+						  'where' varchar(1000) NOT NULL,
 						  why varchar(1000) NOT NULL,
 						  who varchar(1000) NOT NULL,
 						  what varchar(1000) NOT NULL,
@@ -313,14 +320,44 @@
 						  participants varchar(1000) NOT NULL,
 						  metrics varchar(10000) NOT NULL,
 						  method varchar(1000) NOT NULL,
-						)";
+						)"; */
+				$table = "CREATE TABLE IF NOT EXISTS serler (
+						  id int(2) NOT NULL AUTO_INCREMENT,
+						  title varchar(100) NOT NULL,
+						  year year(4) NOT NULL,
+						  date_added timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+						  authors varchar(100) NOT NULL,
+						  contributor varchar(100) NOT NULL,
+						  journal varchar(1000) NOT NULL,
+						  level varchar(1000) NOT NULL,
+						  rater varchar(1000) NOT NULL,
+						  rate int(1) NOT NULL,
+						  reason varchar(1000) NOT NULL,
+						  methodology varchar(1000) NOT NULL,
+						  practice varchar(1000) NOT NULL,
+						  outcome varchar(1000) NOT NULL,
+						  `when` varchar(1000) NOT NULL,
+						  `where` varchar(1000) NOT NULL,
+						  why varchar(1000) NOT NULL,
+						  who varchar(1000) NOT NULL,
+						  what varchar(1000) NOT NULL,
+						  how varchar(1000) NOT NULL,
+						  result varchar(10000) NOT NULL,
+						  integrity varchar(10000) NOT NULL,
+						  question  varchar(10000) NOT NULL,
+						  participants varchar(1000) NOT NULL,
+						  metrics varchar(10000) NOT NULL,
+						  method varchar(1000) NOT NULL,
+    					  key(id)
+						  unique(id)
+							)";
 				@mysqli_query($conn, $table)
 				or die('Failed to connect to server');
 			}
 			
 			$query = "INSERT INTO serler (title, year, authors, contributor, journal, level, rater, rate, reason, 
-			methodology, practice, outcome, `when`, `where`, why, who, what, how, result, integrirty, question, participants, metrics, method)
-			VALUES('{$title}', '{$year}', '{$authors}', '{$contributor}', '{$journal}', '{$level}', '{$rater}', '{$rate}', '{$reason}','{$methodology}', '{$pratice}',
+			methodology, practice, outcome, `when`, `where`, why, who, what, how, result, integrity, question, participants, metrics, method)
+			VALUES('{$title}', '{$year}', '{$authors}', '{$contributor}', '{$journal}', '{$level}', '{$rater}', '{$rate}', '{$reason}','{$methodology}', '{$practice}',
 			'{$outcome}', 
 			'{$when}',
 			'{$where}', 
@@ -366,7 +403,7 @@
 			if($reasonErr == true) {	echo "<p> Please enter the reason given for the rating </p>"; }
 
 			if($methodologyErr == true) {	echo "<p> Please the methodology of the paper </p>"; }
-			if($praticeErr == true) {	echo "<p> Please the pratice of the paper </p>"; }
+			if($practiceErr == true) {	echo "<p> Please the practice of the paper </p>"; }
 
 			if($outcomeErr == true) {	echo "<p> Please the outcome of the paper </p>"; }
 			if($whenErr == true) {	echo "<p> Please enter when of the study</p>"; }

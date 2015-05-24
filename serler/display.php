@@ -6,7 +6,7 @@
  }
  $userlogin = $_SESSION["login"]; // copy the value to a variable
 ?>
-
+<!-- REFACTORED 'integrirty' to 'integrity' -->
 <?php require_once('settings.php');  
 	if (isset ($_GET["id"])){
 		$id = $_GET["id"];
@@ -41,7 +41,7 @@
 			$what = $row["what"];
 			$how = $row["how"];
 			$result = $row["result"];
-			$integrity = $row["integrirty"];
+			$integrity = $row["integrity"];
 			$question = $row["question"];
 			$metrics = $row["metrics"];
 			$contributor = $row["contributor"];
