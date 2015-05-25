@@ -292,7 +292,7 @@ THIS SETS THE "PRACTICE" FIELD AS NULL IN THE TABLE -->
 			}
 			else {
 				echo "<p>Table Doesn't Exist</p>";
-				/* ORIGINAL QUERY
+				
 				$table = "CREATE TABLE IF NOT EXISTS serler (
 						  id int(2) NOT NULL AUTO_INCREMENT,
 						  title varchar(100) NOT NULL,
@@ -304,35 +304,7 @@ THIS SETS THE "PRACTICE" FIELD AS NULL IN THE TABLE -->
 						  level varchar(1000) NOT NULL,
 						  rater varchar(1000) NOT NULL,
 						  rate int(1) NOT NULL,
-						  reason varchar(1000) NOT NULL,
-						  methodology varchar(1000) NOT NULL,
-						  practice varchar(1000) NOT NULL,
-						  outcome varchar(1000) NOT NULL,
-						  'when' varchar(1000) NOT NULL,
-						  'where' varchar(1000) NOT NULL,
-						  why varchar(1000) NOT NULL,
-						  who varchar(1000) NOT NULL,
-						  what varchar(1000) NOT NULL,
-						  how varchar(1000) NOT NULL,
-						  result varchar(10000) NOT NULL,
-						  integrirty varchar(10000) NOT NULL,
-						  question  varchar(10000) NOT NULL,
-						  participants varchar(1000) NOT NULL,
-						  metrics varchar(10000) NOT NULL,
-						  method varchar(1000) NOT NULL,
-						)"; */
-				$table = "CREATE TABLE IF NOT EXISTS serler (
-						  id int(2) NOT NULL AUTO_INCREMENT,
-						  title varchar(100) NOT NULL,
-						  year year(4) NOT NULL,
-						  date_added timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-						  authors varchar(100) NOT NULL,
-						  contributor varchar(100) NOT NULL,
-						  journal varchar(1000) NOT NULL,
-						  level varchar(1000) NOT NULL,
-						  rater varchar(1000) NOT NULL,
-						  rate int(1) NOT NULL,
-						  reason varchar(1000) NOT NULL,
+						  reason varchar(100) NOT NULL,
 						  methodology varchar(1000) NOT NULL,
 						  practice varchar(1000) NOT NULL,
 						  outcome varchar(1000) NOT NULL,
@@ -342,15 +314,16 @@ THIS SETS THE "PRACTICE" FIELD AS NULL IN THE TABLE -->
 						  who varchar(1000) NOT NULL,
 						  what varchar(1000) NOT NULL,
 						  how varchar(1000) NOT NULL,
-						  result varchar(10000) NOT NULL,
-						  integrity varchar(10000) NOT NULL,
-						  question  varchar(10000) NOT NULL,
+						  result varchar(1000) NOT NULL,
+						  integrity varchar(1000) NOT NULL,
+						  question  varchar(1000) NOT NULL,
 						  participants varchar(1000) NOT NULL,
-						  metrics varchar(10000) NOT NULL,
+						  metrics varchar(1000) NOT NULL,
 						  method varchar(1000) NOT NULL,
-    					  key(id)
-						  unique(id)
-							)";
+						rating float(10) NOT NULL DEFAULT '0',
+						numberofratings INT(10) NOT NULL DEFAULT '0',
+						  PRIMARY KEY (id)
+						  )";
 				@mysqli_query($conn, $table)
 				or die('Failed to connect to server');
 			}
@@ -395,7 +368,7 @@ THIS SETS THE "PRACTICE" FIELD AS NULL IN THE TABLE -->
 			if($authorsErr == true) {	echo "<p> Please enter the Authors of the paper </p>"; }
 			if($journalErr == true) {	echo "<p> Please enter the Journal the paper is entered in</p>"; }
 			if($yearErr == true) {	echo "<p> Please enter year the paper was written</p>"; }
-			if($level == true) {	echo "<p> Please enter year the Research Level of the paper</p>"; }
+			if($level == true) {	echo "<p> Please enter the Research Level of the paper</p>"; }
 
 
 			if($raterErr == true) {	echo "<p> Please enter the rater of the paper </p>"; }

@@ -20,6 +20,7 @@
 
 <!-- not sure if needed-->
 <body>
+	
 	<script type="text/javascript">
 	    function toggle_visibility() {
 	    	alert("Please Login");
@@ -28,13 +29,21 @@
 	</script>
 <!--include header-->
 	<?php require_once('header.php'); ?>
-	
+	<div id=text>
 	<h1>Remove a Paper</h1>
 	<p>A table goes here showing the databases which show the papers the user has uploaded, with an
 		an option to delete the paper next to each entry</p>
 		
 		
-	<?php if (isset ($_GET[$userlogin])){
+
+	<?php 
+	if($userlogin == null){
+		echo '<script type="text/javascript">'
+		   , 'toggle_visibility();'
+		   , '</script>';
+	}
+
+	if (isset ($_GET[$userlogin])){
 		$toSearch = $_GET["$userlogin"];
 	}
 	if(isset($_GET["order"])){
@@ -45,7 +54,6 @@
 	}
 	?>
 	<!-- COPY PASTED -->
-		<div id=text>
 	<?php 
 	require_once('settings.php'); 
 	$conn = @mysqli_connect($host, $user, $pswd)
@@ -76,26 +84,8 @@
 	
 	<h2>Search Results</h2>
 
-		<!--<form action = "searchstatusprocess.php" method = "get"> 
-		<form action = "removepaperform.php" method = "get">
-			<input type="text" value="<?php echo $toSearch; ?>" name="input"> 
-		Order: 
-		<select name="orderby">
-			<option <?php if (isset($orderby) &&$orderby == 0 ) echo 'selected'; ?> value="0">---</option>
-		  <option <?php if (isset($orderby) &&$orderby == 1 ) echo 'selected'; ?> value="1">Date Written</option>
-	 	 <option <?php if (isset($orderby) &&$orderby == 2 ) echo 'selected'; ?> value="2">Rating</option>
-	 	 	 	 </select>
-
-		<input type="radio" name="order"
-		<?php if (isset($order) && $order=="ascending") echo "checked";?>	value="ascending" >Ascending
 		
-		<input type="radio" name="order"
-		<?php if (isset($order) && $order=="descending") echo "checked";?>	value="descending">Descending
-		<input type="submit">
-		</form>-->
-
 	<?php
-	if (isset ($toSearch)){
 		require_once('settings.php'); 
 		$conn = @mysqli_connect($host, $user, $pswd)
 		or die('Failed to connect to server');
@@ -103,36 +93,23 @@
 		@mysqli_select_db($conn, $dbnm)
 		or die('Database not available');
 
-		$query = "SELECT id, title, rate, year FROM serler WHERE result like '%{$toSearch}%' OR authors like '%{$toSearch}%' OR title like '%{$toSearch}%' OR outcome like '%{$toSearch}%' OR methodology like '%{$toSearch}%'";
+		$query = "SELECT id, title, rate, year FROM serler";
 
-		if(isset($order) && isset($orderby) && $orderby != 0) {
-			if($orderby == 1){
-				$query .= " ORDER BY year";
-			}
-			if($orderby == 2){
-				$query .= " ORDER BY rate";
-			}
-			if($order == "ascending"){
-				$query .= " ASC";
-			}
-			if($order == "descending"){
-				$query .= " DESC";
-			}
-		}
 
 		$results = mysqli_query($conn, $query);
 
 		if($results != null) {
 		while($row = mysqli_fetch_assoc($results)) {
-			echo "<br><a href=\"display.php?id={$row['id']}\">{$row['title']}</a>, Year = {$row['year']}, {$row['rate']} Stars</br>";
+			echo "<a href=\"display.php?id={$row['id']}\">{$row['title']}</a>, Year = {$row['year']}, {$row['rate']} Stars";
+			echo "  <a href=\"removepaperprocess.php?id={$row['id']}\">Delete this paper</a>";
 		}
 
 		mysqli_free_result($results);
 		}
 		mysqli_close($conn);
-	}
-	?>
 	
+	?>
+	</div>
 	
 </body>
 </html>

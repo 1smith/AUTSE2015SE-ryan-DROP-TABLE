@@ -76,7 +76,7 @@
       $query .= " methodology";
     }
     if($type == "Practice"){
-      $query .= " pratice";
+      $query .= " practice";
     }
     if($type == "Method"){
       $query .= " method";
@@ -106,7 +106,7 @@
     $query .= " methodology";
   }
   if($type == "Practice"){
-    $query .= " pratice";
+    $query .= " practice";
   }
   if($type == "Method"){
     $query .= " method";

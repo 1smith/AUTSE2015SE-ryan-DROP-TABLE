@@ -41,14 +41,14 @@
 	or die('Database not available');
 	
 
-	$result = mysqli_query($conn, 'show tables like "users"');
+	$result = mysqli_query($conn, 'show tables like "query"');
 	$row = mysqli_fetch_assoc($result);
 	
 	if(isset($row)){
 	}
 	else {
 		echo "<p>Table Doesn't Exist</p>";
-		$table = "CREATE TABLE IF NOT EXISTS users query (id int(2) NOT NULL AUTO_INCREMENT,
+		$table = "CREATE TABLE IF NOT EXISTS query (id int(2) NOT NULL AUTO_INCREMENT,
 			query varchar(1000) NOT NULL,  user_name varchar(100) NOT NULL,  PRIMARY KEY (id),
 			KEY user_name (user_name)) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;)";
 		@mysqli_query($conn, $table)

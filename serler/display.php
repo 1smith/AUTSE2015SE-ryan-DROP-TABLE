@@ -51,6 +51,8 @@
 			$contributor = $row["contributor"];
 			$method = $row["method"];
 			$participants = $row["participants"];
+			$ratings = $row["rating"];
+			$noratings = $row["numberofratings"];
 		}
 
 		mysqli_free_result($results);
@@ -114,6 +116,26 @@
 				<br><strong>Method: </strong> {$method}
 
 	";
+
+	?>
+	<br><br>
+	<strong> The average rating of this paper: <?php echo $ratings; ?> </strong>
+	<br> Rated by <?php echo $noratings; ?> user's
+
+	<br><br> Add your rating on this paper
+	<form action="ratingproccess.php" method="get">
+		<select name="Rating">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<input type="hidden" name="id" <?php echo "value= \"{$id}\"";?>>
+		<input type="submit">
+	</form>
+	
+	<?php
 
 	echo "<br>";
 	echo '<p><button onclick="goBack()">
