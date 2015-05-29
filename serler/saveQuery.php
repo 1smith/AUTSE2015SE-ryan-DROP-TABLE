@@ -38,21 +38,12 @@
 			mysqli_query($conn, $insert);
 			mysqli_close($conn);
 			echo "<p>Query Saved:";
-			echo '<button onclick="goBack()">
-						Go Back
-						</button></p>';
-			echo "</p>";
+			header("location:searchstatusprocess.php?{$query}");
 		}else echo "Failed to get query";
 	}
 	else echo "Failed to get recieve input";
 		
 	?>
-	<script>
-	function goBack() {
-		window.history.back();
-	}
-	</script>
-	
 	</div>
 	
 	
