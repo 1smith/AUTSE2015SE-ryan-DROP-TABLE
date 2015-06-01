@@ -6,9 +6,6 @@
  }
  $userlogin = $_SESSION["login"]; // copy the value to a variable
 ?>
-<!-- TODO:
-	- Add in a way where that it automatically gets the users login name, and retrieves all of the
-	papers they have uploaded-->
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css">
@@ -101,7 +98,7 @@
 		if($results != null) {
 		while($row = mysqli_fetch_assoc($results)) {
 			echo "<a href=\"display.php?id={$row['id']}\">{$row['title']}</a>, Year = {$row['year']}, {$row['rate']} Stars";
-			echo "  <a href=\"removepaperprocess.php?id={$row['id']}\">Delete this paper</a>";
+			echo "  <a href=\"removepaperprocess.php?id={$row['id']}\">Delete this paper</a><br>";
 		}
 
 		mysqli_free_result($results);

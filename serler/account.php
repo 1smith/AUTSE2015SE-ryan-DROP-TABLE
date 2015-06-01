@@ -19,6 +19,7 @@
 
 	while($row = mysqli_fetch_assoc($results)) {
 		$email = $row['email'];
+		$usertype = $row['usertype'];
 	}
 
 	mysqli_free_result($results);
@@ -46,11 +47,16 @@
 	
 	echo "<br><strong>Saved Query's: </strong>"; 
 	echo "<br>";
+	
+
 
 	while($row = mysqli_fetch_assoc($results)) {
 		echo "<a href=\"searchstatusprocess.php?{$row['query']}\">{$row['query']}</a>".  "<br>";
 	}
 	mysqli_free_result($results);
+	
+	echo "<br><strong>User Type: </Strong>{$usertype}";
+	
 	mysqli_close($conn);
 	?>
 	</div>

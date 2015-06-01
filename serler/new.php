@@ -62,15 +62,16 @@
 				echo "<p>Table Exists</p>";
 			}
 			else {
+			//ADDED "usertype varchar(20) NOT NULL,"
 				echo "<p>Table Doesn't Exist</p>";
 				$table = "CREATE TABLE IF NOT EXISTS users (user_name varchar(100) NOT NULL,
-						  password varchar(100) NOT NULL, email varchar(100) NOT NULL,
+						  password varchar(100) NOT NULL, email varchar(100) NOT NULL, usertype varchar(20) NOT NULL,
 						  PRIMARY KEY (user_name))";
 				@mysqli_query($conn, $table)
 				or die('Failed to connect to server');
 			}
 			
-			$query = "INSERT INTO users (user_name, password, email) VALUES ('{$login}', '{$pword}', '{$email}')";
+			$query = "INSERT INTO users (user_name, password, email, usertype) VALUES ('{$login}', '{$pword}', '{$email}', 'Standard User')";
 	
 			if (mysqli_query($conn, $query)) {
 				echo "<p>New record created successfully</p>";
