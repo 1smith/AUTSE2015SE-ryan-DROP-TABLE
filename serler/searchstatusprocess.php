@@ -69,10 +69,10 @@
 	if(isset($row)){
 	}
 	else {
-		echo "<p>Table Doesn't Exist</p>";
+		echo "<p>Query Table Doesn't Exist</p>";
 		$table = "CREATE TABLE IF NOT EXISTS query (id int(2) NOT NULL AUTO_INCREMENT,
 			query varchar(1000) NOT NULL,  user_name varchar(100) NOT NULL,  PRIMARY KEY (id),
-			KEY user_name (user_name)) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;)";
+			KEY user_name (user_name)) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1)";
 		@mysqli_query($conn, $table)
 		or die('Failed to connect to server');
 		$query = "ALTER TABLE query ADD CONSTRAINT query_ibfk_1 FOREIGN KEY (user_name) REFERENCES users (user_name);";
@@ -275,7 +275,10 @@
 
 		?> name="query">
 		<input type="submit" value="Save This Query">
-	</form>	
+	</form>
+        <form action="php_pdf_mysql.php">
+            <input type="submit" value="ToPDF">
+        </form>
 	</div>
 </body>
 </html> 
