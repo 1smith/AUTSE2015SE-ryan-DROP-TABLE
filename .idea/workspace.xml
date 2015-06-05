@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="ca2d6134-cec1-45ee-bc43-d3543d7ec357" name="Default" comment="added pdf support">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/serler/mysql_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serler/searchstatusprocess.php" afterPath="$PROJECT_DIR$/serler/searchstatusprocess.php" />
+    <list default="true" readonly="true" id="ca2d6134-cec1-45ee-bc43-d3543d7ec357" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AUTSE2015SE-ryan-DROP-TABLE.iws" />
@@ -103,8 +100,8 @@
       <file leaf-file-name="php_pdf_mysql.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/serler/php_pdf_mysql.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55593807" vertical-offset="255" max-vertical-offset="2346">
-              <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.23407917" vertical-offset="255" max-vertical-offset="2346">
+              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
               <folding>
                 <marker date="1433491933908" expanded="true" signature="2144:2164" placeholder="SELECT * FRO..serler..." />
               </folding>
@@ -324,6 +321,13 @@
       <option name="number" value="Default" />
       <updated>1431925043924</updated>
     </task>
+    <task id="LOCAL-00001" summary="added pdf support">
+      <created>1433492049905</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1433492049905</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -902,8 +906,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/serler/php_pdf_mysql.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55593807" vertical-offset="255" max-vertical-offset="2346">
-          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.23407917" vertical-offset="255" max-vertical-offset="2346">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
           <folding>
             <marker date="1433491933908" expanded="true" signature="2144:2164" placeholder="SELECT * FRO..serler..." />
           </folding>
